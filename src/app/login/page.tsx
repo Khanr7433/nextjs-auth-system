@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,17 +17,20 @@ export default function LoginPage() {
   const onLogin = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/login", user);
-      console.log("Login success", response.data);
-      toast.success("Login success");
+      toast.loading("Signing you in...", { id: "login" });
+
+      await axios.post("/api/users/login", user);
+
+      toast.success("Welcome back! Login successful.", { id: "login" });
       router.push("/profile");
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.log("Login failed", error.message);
-        toast.error(error.message);
+        toast.error(`Login failed: ${error.message}`, { id: "login" });
       } else {
-        console.log("Login failed", error);
-        toast.error("Failed to login. Please try again.");
+        toast.error(
+          "Unable to sign in. Please check your credentials and try again.",
+          { id: "login" }
+        );
       }
     } finally {
       setLoading(false);

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -18,17 +18,25 @@ export default function SignupPage() {
   const onSignup = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/signup", user);
-      console.log("Signup success", response.data);
-      toast.success("Signup successful! Redirecting to login...");
-      router.push("/login");
+      toast.loading("Creating your account...", { id: "signup" });
+
+      await axios.post("/api/users/signup", user);
+
+      toast.success(
+        "Account created successfully! Please check your email for verification.",
+        { id: "signup" }
+      );
+      setTimeout(() => {
+        router.push("/login");
+      }, 2000);
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.log("Signup failed", error.message);
-        toast.error(error.message);
+        toast.error(`Registration failed: ${error.message}`, { id: "signup" });
       } else {
-        console.log("Signup failed", error);
-        toast.error("Failed to signup. Please try again.");
+        toast.error(
+          "Unable to create account. Please try again with different credentials.",
+          { id: "signup" }
+        );
       }
     } finally {
       setLoading(false);

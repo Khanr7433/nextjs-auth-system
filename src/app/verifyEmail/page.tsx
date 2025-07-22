@@ -3,6 +3,7 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function VerifyEmailPage() {
   const [token, setToken] = useState("");
@@ -13,14 +14,28 @@ export default function VerifyEmailPage() {
   const verifyUserEmail = useCallback(async () => {
     try {
       setLoading(true);
+      toast.loading("Verifying your email address...", { id: "verify" });
+
       await axios.post("/api/users/verifyEmail", { token });
+
       setVerified(true);
+      toast.success(
+        "Email verified successfully! You can now log in to your account.",
+        { id: "verify" }
+      );
     } catch (error: unknown) {
       setError(true);
       if (axios.isAxiosError(error)) {
-        console.log(error.response?.data);
+        const errorMessage =
+          error.response?.data?.error ||
+          error.response?.data?.message ||
+          "Email verification failed";
+        toast.error(`Verification failed: ${errorMessage}`, { id: "verify" });
       } else {
-        console.log("Unknown error", error);
+        toast.error(
+          "Email verification failed. The link may be expired or invalid.",
+          { id: "verify" }
+        );
       }
     } finally {
       setLoading(false);
@@ -30,6 +45,10 @@ export default function VerifyEmailPage() {
   useEffect(() => {
     const urlToken = window.location.search.split("=")[1];
     setToken(urlToken || "");
+
+    if (!urlToken) {
+      toast.error("No verification token found. Please check your email link.");
+    }
   }, []);
 
   useEffect(() => {
