@@ -183,7 +183,7 @@ export default function VerifyEmailPage() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   Verification Successful!
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-900 mb-6">
                   Your email has been verified. You can now log in to your
                   account.
                 </p>
@@ -231,7 +231,7 @@ export default function VerifyEmailPage() {
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   Verification Failed
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-900 mb-6">
                   There was an issue verifying your email. The link may be
                   expired or invalid.
                 </p>

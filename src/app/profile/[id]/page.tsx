@@ -1,12 +1,13 @@
 import Link from "next/link";
 
 interface UserProfileProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function UserProfile({ params }: UserProfileProps) {
+export default async function UserProfile({ params }: UserProfileProps) {
+  const { id } = await params;
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-2xl mx-auto">
@@ -59,13 +60,13 @@ export default function UserProfile({ params }: UserProfileProps) {
                           d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V4a2 2 0 114 0v2m-4 0a2 2 0 104 0m-4 0v2m0 6h.01"
                         />
                       </svg>
-                      {params.id}
+                      {id}
                     </span>
                   </div>
                 </div>
 
                 <div className="text-center">
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-900 text-sm">
                     This is a public profile page. Only basic information is
                     displayed for privacy.
                   </p>
