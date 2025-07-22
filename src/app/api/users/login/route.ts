@@ -9,16 +9,16 @@ connectDB();
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    const { email, password } = reqBody;
+    const { username, password } = reqBody;
 
-    if (!email || !password) {
+    if (!username || !password) {
       return NextResponse.json(
-        { error: "Email and password are required" },
+        { error: "username and password are required" },
         { status: 400 }
       );
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
 
     if (!user) {
       return NextResponse.json(

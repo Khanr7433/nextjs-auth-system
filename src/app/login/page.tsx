@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 export default function LoginPage() {
   const router = useRouter();
   const [user, setUser] = React.useState({
-    email: "",
+    username: "",
     password: "",
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
@@ -35,7 +35,7 @@ export default function LoginPage() {
   };
 
   useEffect(() => {
-    if (user.email.length > 0 && user.password.length > 0) {
+    if (user.username.length > 0 && user.password.length > 0) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -47,14 +47,14 @@ export default function LoginPage() {
       <h1>{loading ? "Processing..." : "Login"}</h1>
       <hr />
 
-      <label htmlFor="email">email</label>
+      <label htmlFor="username">username</label>
       <input
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-        id="email"
+        id="username"
         type="text"
-        value={user.email}
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
+        value={user.username}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
+        placeholder="username"
       />
       <label htmlFor="password">password</label>
       <input

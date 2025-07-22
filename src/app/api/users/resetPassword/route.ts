@@ -28,8 +28,8 @@ export async function POST(request: Request) {
     }
 
     const user = await User.findOne({
-      verifyToken: token,
-      verifyTokenExpiry: { $gt: Date.now() },
+      forgotPasswordToken: token,
+      forgotPasswordTokenExpiry: { $gt: Date.now() },
     });
 
     if (!user) {
