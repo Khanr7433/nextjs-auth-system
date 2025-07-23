@@ -1,12 +1,11 @@
-import { connectDB } from "@/db/db";
+import { connectDB } from "@/db/dbConfig";
 import { NextResponse } from "next/server";
 import { sendEmail } from "@/helpers/mailer";
 import User from "@/model/userModel";
 
-connectDB();
-
 export async function POST(request: Request) {
   try {
+    await connectDB();
     const reqBody = await request.json();
     const { email } = reqBody;
 

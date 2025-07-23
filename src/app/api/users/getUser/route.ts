@@ -1,12 +1,11 @@
-import { connectDB } from "@/db/db";
+import { connectDB } from "@/db/dbConfig";
 import { getDataFromToken } from "@/helpers/grtDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 import User from "@/model/userModel";
 
-connectDB();
-
 export async function GET(request: NextRequest) {
   try {
+    await connectDB();
     const userId = await getDataFromToken(request);
 
     if (!userId) {
