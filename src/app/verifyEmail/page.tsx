@@ -156,7 +156,7 @@ export default function VerifyEmailPage() {
                 <div className="h-4 bg-blue-200 rounded-full w-3/4 mx-auto mb-4"></div>
                 <div className="h-4 bg-blue-200 rounded-full w-1/2 mx-auto"></div>
               </div>
-              <p className="text-gray-600 mt-4">
+              <p className="text-gray-900 mt-4">
                 Verifying your email address...
               </p>
             </div>
