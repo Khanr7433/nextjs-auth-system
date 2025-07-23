@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
     path === "/" ||
     path === "/login" ||
     path === "/signup" ||
-    path === "/verifyemail" ||
+    path === "/verifyEmail" ||
     path === "/forgotPassword" ||
     path === "/resetPassword";
 
@@ -30,7 +30,7 @@ export const config = {
     "/profile",
     "/login",
     "/signup",
-    "/verifyemail",
+    "/verifyEmail",
     "/forgotPassword",
     "/resetPassword",
     "/profile/:path*",
