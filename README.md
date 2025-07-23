@@ -1,6 +1,6 @@
 # 🔐 Next.js Authentication System
 
-A comprehensive full-stack authentication system built with **Next.js 15**, **TypeScript**, **MongoDB**, and **Tailwind CSS**. This project demonstrates modern web development practices and implements a complete user authentication flow with email verification and password reset functionality.
+A comprehensive full-stack authentication system built with **Next.js 15**, **TypeScript**, **MongoDB**, and **Tailwind CSS**. This project demonstrates modern web development practices and implements a complete user authentication flow with email verification and password reset function.
 
 ## 🚀 Live Demo
 
@@ -321,12 +321,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## ‍💻 Author
+## 👨‍💻 Author
 
-**Rashid Mohammed Iliyas Khan**
+**Rashid Khan**
 
 - GitHub: [@Khanr7433](https://github.com/Khanr7433)
-- Email: khanr7433@gmail.com
+- Email: khan.rashid.7433@gmail.com.
 
 ## 🙏 Acknowledgments
 
