@@ -1,7 +1,7 @@
 import { getDataFromToken } from "@/helpers/grtDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/model/userModel";
 import { connectDB } from "@/db/dbConfig";
+import User from "@/model/userModel";
 
 connectDB();
 

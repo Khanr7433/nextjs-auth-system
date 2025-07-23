@@ -1,7 +1,7 @@
-import User from "@/model/userModel";
 import { NextResponse } from "next/server";
-import { connectDB } from "@/db/dbConfig";
+import { connectDB } from "@/db/dbConfig"
 import { sendEmail } from "@/helpers/mailer";
+import User from "@/model/userModel";
 
 connectDB();
 
