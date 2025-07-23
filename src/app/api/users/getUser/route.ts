@@ -1,4 +1,4 @@
-import { connectDB } from "@/db/dbConfig";
+import { connectDB } from "@/db/db";
 import { getDataFromToken } from "@/helpers/grtDataFromToken";
 import { NextRequest, NextResponse } from "next/server";
 import User from "@/model/userModel";
